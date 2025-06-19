@@ -38,8 +38,7 @@ public:
   juce::AudioProcessorValueTreeState& getValueTreeState() {return parameters;}
 
 private:
-  juce::AudioProcessorValueTreeState::ParameterLayout
-  AudioPluginAudioProcessor::createParameterLayout();
+  static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
 
   juce::AudioProcessorValueTreeState parameters;
 

@@ -1,6 +1,5 @@
 #include "YourPluginName/PluginEditor.h"
 #include "YourPluginName/PluginProcessor.h"
-#include "juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.h"
 
 namespace audio_plugin {
 AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor(
