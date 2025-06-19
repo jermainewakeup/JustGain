@@ -10,7 +10,7 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor(
   // editor's size to whatever you need it to be.
 
   // set window size
-  setSize(600, 200);
+  setSize(400, 400);
 
   // configure slider
   gainSlider.setSliderStyle(juce::Slider::RotaryVerticalDrag);
@@ -34,8 +34,8 @@ void AudioPluginAudioProcessorEditor::paint(juce::Graphics& g) {
       getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId));
 
   g.setColour(juce::Colours::white);
-  g.setFont(15.0f);
-  g.drawFittedText("Hello World!", getLocalBounds(),
+  g.setFont(30.0f);
+  g.drawFittedText("Gainz", getLocalBounds(),
                    juce::Justification::centred, 1);
 }
 
