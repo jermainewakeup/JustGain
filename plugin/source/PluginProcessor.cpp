@@ -136,13 +136,23 @@ void AudioPluginAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
   auto totalNumInputChannels = getTotalNumInputChannels();
   auto totalNumOutputChannels = getTotalNumOutputChannels();
 
+  // clear any extra output channels
   for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
     buffer.clear(i, 0, buffer.getNumSamples());
 
-  for (int channel = 0; channel < totalNumInputChannels; ++channel) {
+  // Gets a pointer to the raw parameter value.
+  auto* gainParam = parameters.getRawParameterValue("gain");
+  // Loading the atomic value and assigning it
+  float gainValue = gainParam->load();
+
+  // Apply gain to each sample in each channel
+  for (int channel =0; channel < totalNumInputChannels; ++channel) {
     auto* channelData = buffer.getWritePointer(channel);
-    juce::ignoreUnused(channelData);
-    // ..do something to the data...
+
+    for (int sample = 0; sample < buffer.getNumSamples(); ++sample) {
+      channelData[sample] *= gainValue;
+    }
+  }
   }
 }
 
