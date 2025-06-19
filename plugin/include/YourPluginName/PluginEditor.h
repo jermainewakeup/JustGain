@@ -17,6 +17,11 @@ private:
   // access the processor object that created it.
   AudioPluginAudioProcessor& processorRef;
 
+  //Gain Slider
+  juce::Slider gainSlider;
+  //Gain Slider Attachment
+  std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> gainAttach;
+
   JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioPluginAudioProcessorEditor)
 };
 }  // namespace audio_plugin

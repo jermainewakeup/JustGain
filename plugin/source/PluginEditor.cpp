@@ -1,5 +1,6 @@
 #include "YourPluginName/PluginEditor.h"
 #include "YourPluginName/PluginProcessor.h"
+#include "juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.h"
 
 namespace audio_plugin {
 AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor(
@@ -8,7 +9,21 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor(
   juce::ignoreUnused(processorRef);
   // Make sure that before the constructor has finished, you've set the
   // editor's size to whatever you need it to be.
-  setSize(400, 300);
+
+  // set window size
+  setSize(600, 200);
+
+  // configure slider
+  gainSlider.setSliderStyle(juce::Slider::RotaryVerticalDrag);
+  gainSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 100, 40);
+  addAndMakeVisible(gainSlider);
+
+  // attach the slider to APVTS "gain" parameter
+  gainAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
+    processorRef.getValueTreeState(),
+    "gain",
+    gainSlider
+    );
 }
 
 AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor() {}
@@ -28,5 +43,6 @@ void AudioPluginAudioProcessorEditor::paint(juce::Graphics& g) {
 void AudioPluginAudioProcessorEditor::resized() {
   // This is generally where you'll want to lay out the positions of any
   // subcomponents in your editor..
+  gainSlider.setBounds(getLocalBounds());
 }
 }  // namespace audio_plugin
