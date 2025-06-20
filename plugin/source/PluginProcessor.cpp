@@ -22,13 +22,21 @@ AudioPluginAudioProcessor::createParameterLayout() {
   // creating a vector of unique Audio Parameters
   std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
 
-  // float parameter
+  // drive parameter
   params.push_back(std::make_unique<juce::AudioParameterFloat>(
-    "gain",
-    "Gain",
-    0.0f,
-    2.0f,
+    "drive",
+    "Drive",
+    1.0f,
+    10.0f,
     1.0f));
+  // mix parameter
+  params.push_back(std::make_unique<juce::AudioParameterFloat>(
+    "mix",
+    "Mix",
+    0.0f,
+    1.0f,
+    .5f));
+
 
   return {params.begin(), params.end()};
 }
@@ -141,16 +149,31 @@ void AudioPluginAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     buffer.clear(i, 0, buffer.getNumSamples());
 
   // Gets a pointer to the raw parameter value.
-  auto* gainParam = parameters.getRawParameterValue("gain");
+  auto* driveParam = parameters.getRawParameterValue("drive");
   // Loading the atomic value and assigning it
-  float gainValue = gainParam->load();
+  float driveValue = driveParam->load();
+  auto* mixParam = parameters.getRawParameterValue("mix");
+  float mixValue = mixParam->load();
 
   // Apply gain to each sample in each channel
   for (int channel =0; channel < totalNumInputChannels; ++channel) {
     auto* channelData = buffer.getWritePointer(channel);
 
     for (int sample = 0; sample < buffer.getNumSamples(); ++sample) {
-      channelData[sample] *= gainValue;
+      // dry just outputs the dry signal
+      float dry = channelData[sample];
+      // in multiplies the dry signal with the value of the drive parameter
+      float in = dry * (driveValue); // we point to the address of the value
+                                        // instead of copying it over every sample
+
+      // 1) clamp to [-1.0, +1.0] to prevent audio from extreme distortion
+      in = juce::jlimit(-1.0f, 1.0f, in);
+
+      // 2) cubic soft-clip
+      float out = in - ((in*in*in) * (1.0f/3.0f));
+
+      // 3 wet/dry mix
+      channelData[sample] = (mixValue) * out + (1.0f - (mixValue)) * dry;
     }
   }
 }
