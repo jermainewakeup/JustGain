@@ -26,7 +26,7 @@ juce_add_plugin(
   Standalone
   VST3 # may change this
   PRODUCT_NAME
-  "Analog Clipper" # change this
+  "Analog Clipper-2" # change this
 )
 
 # Sets the source files of the plugin project.
