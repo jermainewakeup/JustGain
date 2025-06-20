@@ -19,14 +19,14 @@ juce_add_plugin(
   NEEDS_MIDI_OUTPUT
   FALSE # may change this
   PLUGIN_MANUFACTURER_CODE
-  SFML # change this (for max compatibility, first letter must be uppercase, remaining lowercase)
+  Sfum # change this (for max compatibility, first letter must be uppercase, remaining lowercase)
   PLUGIN_CODE
-  GAIN # change this (for max compatibility, first letter must be uppercase, remaining lowercase)
+  Soft # change this (for max compatibility, first letter must be uppercase, remaining lowercase)
   FORMATS
   Standalone
   VST3 # may change this
   PRODUCT_NAME
-  "Ultimate Gainz Injector 2000" # change this
+  "Analog Clipper" # change this
 )
 
 # Sets the source files of the plugin project.
