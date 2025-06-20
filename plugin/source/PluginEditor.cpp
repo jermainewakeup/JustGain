@@ -1,5 +1,6 @@
 #include "YourPluginName/PluginEditor.h"
 #include "YourPluginName/PluginProcessor.h"
+#include <juce_gui_basics/juce_gui_basics.h> // needed for FlexBox
 
 namespace audio_plugin {
 AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor(
@@ -40,17 +41,24 @@ AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor() {}
 void AudioPluginAudioProcessorEditor::paint(juce::Graphics& g) {
   // (Our component is opaque, so we must completely fill the background with a
   // solid colour)
-  g.fillAll(juce::Colours::darkgrey);
-  g.setColour(juce::Colours::whitesmoke);
+  g.fillAll(juce::Colours::darkgreen);
+  g.setColour(juce::Colours::bisque);
   g.setFont(30.0f);
   g.drawFittedText("Soft-Clip", getLocalBounds(),
                    juce::Justification::centred, 1);
 }
 
 void AudioPluginAudioProcessorEditor::resized() {
-  // This is generally where you'll want to lay out the positions of any
-  // subcomponents in your editor..
-  driveSlider.setBounds(getLocalBounds());
-  mixSlider.setBounds(getLocalBounds());
+  using namespace juce;
+
+  FlexBox layout; // Instantiating a FlexBox
+  layout.flexDirection = FlexBox::Direction::row;
+  layout.justifyContent = FlexBox::JustifyContent::spaceAround;
+
+  // tells each slider to take up 40% of the width, and flex height
+  layout.items.add (FlexItem (driveSlider).withFlex(.4f).withMinHeight(200));
+  layout.items.add (FlexItem (mixSlider).withFlex(.4f).withMinHeight(200));
+
+  layout.performLayout(getLocalBounds().reduced(20));
 }
 }  // namespace audio_plugin
