@@ -17,7 +17,7 @@ A lightweight, cross-platform **gain** plug-in built with JUCE.
 ```bash
 # clone with JUCE submodule
 git clone --recurse-submodules https://github.com/jermainewakeup/justgain.git
-cd jusgain
+cd justgain
 
 # configure & build
 cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
