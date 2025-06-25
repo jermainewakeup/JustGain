@@ -16,7 +16,7 @@ A lightweight, cross-platform **gain** plug-in built with JUCE.
 
 ```bash
 # clone with JUCE submodule
-git clone --recurse-submodules https://github.com/jermaine-steele/gainstage.git
+git clone --recurse-submodules https://github.com/jermainewakeup/gainstage.git
 cd gainstage
 
 # configure & build
