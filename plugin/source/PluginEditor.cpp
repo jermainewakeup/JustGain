@@ -33,7 +33,7 @@ void AudioPluginAudioProcessorEditor::paint(juce::Graphics& g) {
   g.fillAll(juce::Colours::darkgrey);
   g.setColour(juce::Colours::whitesmoke);
   g.setFont(30.0f);
-  g.drawFittedText("Gainz", getLocalBounds(),
+  g.drawFittedText("JustGain", getLocalBounds(),
                    juce::Justification::centred, 1);
 }
 
