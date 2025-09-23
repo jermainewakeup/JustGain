@@ -32,7 +32,7 @@ winget install --id Kitware.CMake -e
 ```
 
 ## Build
-
+```cmd
 # 1) Clone with JUCE submodule
 git clone --recurse-submodules https://github.com/jermainewakeup/justgain.git
 cd justgain
@@ -50,3 +50,4 @@ cmake -S . -B build -G "Visual Studio 17 2022" -A x64
 
 # 3) Build
 cmake --build build --config Release
+```
