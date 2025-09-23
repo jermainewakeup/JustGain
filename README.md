@@ -1,30 +1,28 @@
 # JustGain
 
-A lightweight, cross-platform **gain** plug-in built with JUCE.
+A lightweight, cross-platform **gain** audio plug-in built with JUCE.
 
-|            | Details |
-|------------|---------|
-| **Format** | VST3 / AU |
-| **Range**  | 0 dB → +18 dB |
-| **Latency**| 0 samples |
-| **Build**  | CMake + C++20 |
-| **License**| MIT |
+|            | Details                                 |
+|------------|-----------------------------------------|
+| **Formats**| VST3 (Windows/macOS/Linux), AU (macOS)  |
+| **Range**  | 0 dB → +18 dB *(no attenuation)*        |
+| **Latency**| 0 samples                               |
+| **Build**  | CMake + C++20                           |
+| **License**| MIT                                     |
 
 ---
+
 ## Features
 - Clean gain with no added coloration
-
 - Smooth knob taper and double-click to reset
-
 - Bypass switch, parameter automation
 
----
-## Prerequisites
 
+## Prerequisites
 - **CMake ≥ 3.22**
 - **Toolchain**
-  - **Windows:** MSVC (Visual Studio 2022 Build Tools)  
-  - **macOS:** Xcode + Command Line Tools  
+  - **Windows:** MSVC (Visual Studio 2022 Build Tools)
+  - **macOS:** Xcode + Command Line Tools
   - **Linux:** `gcc` or `clang`, `build-essential`, `pkg-config`
 - **Submodules:** JUCE (cloned via `--recurse-submodules`)
 
@@ -32,17 +30,23 @@ Install CMake on Windows:
 ```bat
 winget install --id Kitware.CMake -e
 ```
----
+
 ## Build
 
-```bash
-# clone with JUCE submodule
+# 1) Clone with JUCE submodule
 git clone --recurse-submodules https://github.com/jermainewakeup/justgain.git
 cd justgain
 
-# configure & build
-cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
-cmake --build build --config Release
+# 2) Configure (choose ONE generator)
 
-# install to your user plug-in folder
-cmake --install build
+# Windows (Visual Studio 2022, x64):
+cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+
+# macOS (Xcode):
+# cmake -S . -B build -G Xcode
+
+# Any OS (Ninja, single-config):
+# cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+# 3) Build
+cmake --build build --config Release
