@@ -10,13 +10,10 @@ A lightweight, cross-platform **gain** audio plug-in built with JUCE.
 | **Build**  | CMake + C++20                           |
 | **License**| MIT                                     |
 
----
-
 ## Features
 - Clean gain with no added coloration
 - Smooth knob taper and double-click to reset
 - Bypass switch, parameter automation
-
 
 ## Prerequisites
 - **CMake ≥ 3.22**
