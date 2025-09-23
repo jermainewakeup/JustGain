@@ -4,15 +4,36 @@ A lightweight, cross-platform **gain** plug-in built with JUCE.
 
 |            | Details |
 |------------|---------|
-| **Format** | VST3 / AU / LV2 |
+| **Format** | VST3 / AU |
 | **Range**  | 0 dB → +18 dB |
 | **Latency**| 0 samples |
 | **Build**  | CMake + C++20 |
 | **License**| MIT |
 
 ---
+## Features
+- Clean gain with no added coloration
 
-## Build & Install
+- Smooth knob taper and double-click to reset
+
+- Bypass switch, parameter automation
+
+---
+## Prerequisites
+
+- **CMake ≥ 3.22**
+- **Toolchain**
+  - **Windows:** MSVC (Visual Studio 2022 Build Tools)  
+  - **macOS:** Xcode + Command Line Tools  
+  - **Linux:** `gcc` or `clang`, `build-essential`, `pkg-config`
+- **Submodules:** JUCE (cloned via `--recurse-submodules`)
+
+Install CMake on Windows:
+```bat
+winget install --id Kitware.CMake -e
+```
+---
+## Build
 
 ```bash
 # clone with JUCE submodule
