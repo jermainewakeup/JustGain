@@ -27,7 +27,7 @@ AudioPluginAudioProcessor::createParameterLayout() {
     "gain",
     "Gain",
     0.0f,
-    2.0f,
+    18.0f,
     1.0f));
 
   return {params.begin(), params.end()};
