@@ -1,3 +1,5 @@
+[![Watch the demo](assets/thumb.png)](https://youtu.be/0pzlRQJ2cRE)
+
 # JustGain
 
 A lightweight, cross-platform **gain** audio plug-in built with JUCE.
