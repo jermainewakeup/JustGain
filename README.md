@@ -1,4 +1,4 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0pzlRQJ2cRE?si=G-0DHhnCJnHeClWq&amp;start=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch the demo](assets/demo.gif)](https://youtu.be/0pzlRQJ2cRE?si=j0mQo_JE4lhHnAqN)
 
 # JustGain
 
@@ -14,7 +14,7 @@ A lightweight, cross-platform **gain** audio plug-in built with JUCE.
 
 ## Features
 - Clean gain with no added coloration
-- Smooth knob taper
+- Smooth knob taper + double click to reset
 
 ## Prerequisites
 - **CMake ≥ 3.22**
