@@ -1,4 +1,4 @@
-[![CI](https://github.com/jermainewakup/JustGain/actions/workflows/ci.yml/badge.svg)](https://github.com/<USER>/<REPO>/actions/workflows/ci.yml)
+[![CI](https://github.com/jermainewakup/JustGain/actions/workflows/ci.yml/badge.svg)](https://github.com/jermainewakup/JustGain/actions/workflows/ci.yml)
 
 # JustGain
 
