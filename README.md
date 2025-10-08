@@ -1,3 +1,4 @@
+![JustGain demo](assets/demo.gif)
 [![Watch the demo](assets/demo.jpg)](https://youtu.be/0pzlRQJ2cRE?si=j0mQo_JE4lhHnAqN)
 
 # JustGain
