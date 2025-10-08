@@ -1,5 +1,3 @@
-[![CI](https://github.com/jermainewakup/JustGain/actions/workflows/ci.yml/badge.svg)](https://github.com/jermainewakup/JustGain/actions/workflows/ci.yml)
-
 # JustGain
 
 A lightweight, cross-platform **gain** audio plug-in built with JUCE.
@@ -7,15 +5,14 @@ A lightweight, cross-platform **gain** audio plug-in built with JUCE.
 |            | Details                                 |
 |------------|-----------------------------------------|
 | **Formats**| VST3 (Windows/macOS/Linux), AU (macOS)  |
-| **Range**  | 0 dB → +18 dB *(no attenuation)*        |
+| **Range**  | 0 dB → +18 dB                           |
 | **Latency**| 0 samples                               |
 | **Build**  | CMake + C++20                           |
 | **License**| MIT                                     |
 
 ## Features
 - Clean gain with no added coloration
-- Smooth knob taper and double-click to reset
-- Bypass switch, parameter automation
+- Smooth knob taper
 
 ## Prerequisites
 - **CMake ≥ 3.22**
