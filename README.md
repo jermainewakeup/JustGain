@@ -1,5 +1,5 @@
 ![JustGain demo](assets/demo.gif)
-[![Watch the demo](assets/demo.gif)](https://youtu.be/0pzlRQJ2cRE?si=j0mQo_JE4lhHnAqN)
+[![Watch the demo](assets/demo.png)](https://youtu.be/0pzlRQJ2cRE?si=j0mQo_JE4lhHnAqN)
 
 # JustGain
 
